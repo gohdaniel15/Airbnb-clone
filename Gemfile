@@ -17,6 +17,9 @@ gem 'coffee-rails', '~> 4.1.0'
 gem 'clearance'
 # Use Figaro to protect privacy
 gem 'figaro'
+# Use OmniAuth for facebook authentication
+gem 'omniauth'
+gem 'omniauth-facebook'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'

@@ -2,7 +2,7 @@ class ListingsController < ApplicationController
   def new
   end
 
-  def create
+  def create  
   end
 
   def index
