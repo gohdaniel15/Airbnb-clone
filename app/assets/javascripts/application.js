@@ -14,3 +14,31 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+$(document).ready(function() {
+  $('.sign-in').click(function() {
+    $('.sign-up-container').fadeOut('fast');
+    $('.sign-in-container').fadeIn('slow');
+    $('.navbar-collapse').removeClass('collapse in');
+    $('.navbar-collapse').addClass('collapse');
+  });
+
+  $('.sign-up').click(function() {
+    $('.sign-in-container').fadeOut('fast');
+    $('.sign-up-container').fadeIn('slow');
+    $('.navbar-collapse').removeClass('collapse in');
+    $('.navbar-collapse').addClass('collapse');
+  });
+
+  $('.home').click(function() {
+    $('.sign-in-container').fadeOut('slow');
+    $('.sign-up-container').fadeOut('slow');
+    $('.navbar-collapse').removeClass('collapse in');
+    $('.navbar-collapse').addClass('collapse');
+  });
+
+  $('.container').click(function() {
+    $('.navbar-collapse').removeClass('collapse in');
+    $('.navbar-collapse').addClass('collapsing');
+  });
+});
