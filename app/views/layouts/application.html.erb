@@ -2,6 +2,15 @@
 <html>
 <head>
   <title>AirbnbClone</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+  <script src="https://use.fontawesome.com/5760e317e8.js"></script>
+
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
@@ -9,10 +18,72 @@
 <body>
 
   <div id="header">
-    <% if signed_in? %>
-      <%= button_to t(".sign_out"), sign_out_path, method: :delete %>
-    <% else %>
-      <%= link_to t(".sign_in"), sign_in_path %>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#"><div class="main-logo"></div></a>
+        </div>
+        <div class="collapse navbar-inverse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li class="active">
+              <%= content_tag(:a, "Home", class: "home") %>
+            </li>
+            <li><a href="#about">Stay</a></li>
+            <li><a href="#contact" data-toggle="collapse" data-target=".navbar-collapse.in">Close</a></li>
+              <% if signed_in? %>
+                <li>
+                  <%= link_to t(".sign_out"), sign_out_path, method: :delete %>
+                </li>
+              <% else %>
+                <li>
+                  <%= content_tag(:a, "Sign In", class: "sign-in") %>
+                </li>
+                <li>
+                  <%= content_tag(:a, "Sign Up", class: "sign-up") %>
+                </li>
+              <% end %>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </nav>
+</div>
+
+  <div class="container sign-in-container">
+    <%= render partial: '/sessions/form' %>
+  </div>
+
+  <div class="container sign-up-container">
+    <button class="btn btn-primary facebook-button">
+      <a href='/auth/facebook'>
+        <span>
+          <icon class="fa fa-facebook"></icon>
+          <span>               Sign Up with Facebook</span>
+        </span>
+      </a>
+    </button>
+
+    <%= form_for :user, url: users_path do |form| %>
+      <%= render partial: '/users/form', object: form %>
+
+      <div class="password-field">
+        <%= form.label :password %>
+        <%= form.password_field :password %>
+      </div>
+
+      <div class="submit-field">
+        <%= form.submit %>
+      </div>
+
+      <div class="other-links">
+        <%= link_to t(".sign_in"), sign_in_path %>
+      </div>
+
     <% end %>
   </div>
 
@@ -22,7 +93,10 @@
     <% end %>
   </div>
 
-<%= yield %>
+
+  <div class="container body-container">
+    <%= yield %>
+  </div>
 
 </body>
 </html>
