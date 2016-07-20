@@ -33,20 +33,19 @@
             <li class="active">
               <%= content_tag(:a, "Home", class: "home") %>
             </li>
-            <li><a href="#about">Stay</a></li>
-            <li><a href="#contact" data-toggle="collapse" data-target=".navbar-collapse.in">Close</a></li>
-              <% if signed_in? %>
-                <li>
-                  <%= link_to t(".sign_out"), sign_out_path, method: :delete %>
-                </li>
-              <% else %>
-                <li>
-                  <%= content_tag(:a, "Sign In", class: "sign-in") %>
-                </li>
-                <li>
-                  <%= content_tag(:a, "Sign Up", class: "sign-up") %>
-                </li>
-              <% end %>
+
+            <% if signed_in? %>
+              <li>
+                <%= link_to t(".sign_out"), sign_out_path, method: :delete %>
+              </li>
+            <% else %>
+              <li>
+                <%= content_tag(:a, "Sign In", class: "sign-in") %>
+              </li>
+              <li>
+                <%= content_tag(:a, "Sign Up", class: "sign-up") %>
+              </li>
+            <% end %>
           </ul>
         </div>
       </div>
@@ -54,49 +53,57 @@
   </nav>
 </div>
 
-  <div class="container sign-in-container">
-    <%= render partial: '/sessions/form' %>
+<div class="container sign-in-container">
+  <br>
+  <button class="btn btn-primary facebook-button">
+    <a href='/auth/facebook'>
+      <span>
+        <icon class="fa fa-facebook"></icon>
+        <span>Sign In with Facebook</span>
+      </span>
+    </a>
+  </button>
+  <hr class="style1">
+  <%= render partial: '/sessions/form' %>
+</div>
+
+<div class="container sign-up-container">
+  <br>
+  <button class="btn btn-primary facebook-button">
+    <a href='/auth/facebook'>
+      <span>
+        <icon class="fa fa-facebook"></icon>
+        <span>Sign Up with Facebook</span>
+      </span>
+    </a>
+  </button>
+  <hr class="style1">
+
+  <%= form_for :user, url: users_path do |form| %>
+  <%= render partial: '/users/form', object: form %>
+
+  <div class="password-field">
+    <%= form.label :password %>
+    <%= form.password_field :password %>
   </div>
 
-  <div class="container sign-up-container">
-    <button class="btn btn-primary facebook-button">
-      <a href='/auth/facebook'>
-        <span>
-          <icon class="fa fa-facebook"></icon>
-          <span>               Sign Up with Facebook</span>
-        </span>
-      </a>
-    </button>
-
-    <%= form_for :user, url: users_path do |form| %>
-      <%= render partial: '/users/form', object: form %>
-
-      <div class="password-field">
-        <%= form.label :password %>
-        <%= form.password_field :password %>
-      </div>
-
-      <div class="submit-field">
-        <%= form.submit %>
-      </div>
-
-      <div class="other-links">
-        <%= link_to t(".sign_in"), sign_in_path %>
-      </div>
-
-    <% end %>
+  <div class="submit-field">
+    <%= form.submit %>
   </div>
 
-  <div id="flash">
-    <% flash.each do |key, value| %>
-      <div id="flash_<%= key %>"><%=h value %></div>
-    <% end %>
+  <div class="other-links">
+    <br>
+    <p>Already have an account?</p>
+    <%= link_to t(".sign_in"), sign_in_path %>
   </div>
 
+  <% end %>
+</div>
 
-  <div class="container body-container">
-    <%= yield %>
-  </div>
+
+<div class="container body-container">
+  <%= yield %>
+</div>
 
 </body>
 </html>

@@ -1,3 +1,17 @@
 // Place all the styles related to the listings controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.jumbotron {
+  background-image: url('/assets/landing-stage-sea-holiday-vacation.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 0;
+  height: 768px;
+  background-position-x: -22em;
+  position: absolute;
+  width: 100%;
+  @media(min-width:34em){
+    background-position-x: 0
+  }
+}
