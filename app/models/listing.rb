@@ -3,8 +3,6 @@ class Listing < ActiveRecord::Base
   has_many :listing_tags
   has_many :tags, through: :listing_tags
 
-  def tag_list
-    tags.join(", ")
-  end
+  mount_uploaders :listing_images, ListingImagesUploader
 
 end

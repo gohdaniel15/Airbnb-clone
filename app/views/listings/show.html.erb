@@ -1,4 +1,7 @@
 <div>
+  <div class="listing-image-container">
+    <%= image_tag (@listing.listing_images.first.square.url) %>
+  </div>
   <h1><%= @listing.name %></h1>
   <h2><%= "#{@listing.city}, #{@listing.country}" %></h2>
   <div class="features-container">

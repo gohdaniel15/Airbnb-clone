@@ -1,9 +1,5 @@
 <div class="jumbotron">
 
-  <div class="create-listing-container">
-    <%= render partial: '/listings/form' %>
-  </div>
-
   <% Listing.all.each do |l| %>
     <div class="listing-container">
 

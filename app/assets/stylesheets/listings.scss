@@ -14,7 +14,7 @@
   position: absolute;
   width: 100%;
   @media(min-width:34em){
-    background-position-x: 0
+    background-position-x: 0;
   }
 }
 
@@ -24,7 +24,6 @@
     position:absolute;
     z-index: 1;
     background-color: white;
-    display: none;
     text-align: center;
     @media(min-width:34em){
       width: 40%;

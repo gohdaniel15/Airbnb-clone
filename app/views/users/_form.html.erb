@@ -1,22 +1,30 @@
-<div class="text-field">
-  <%= form.label :name %>
-  <%= form.text_field :name %>
-</div>
 
-<div class="text-field">
-  <%= form.label :email %>
-  <%= form.text_field :email, type: 'email' %>
-</div>
 
-<div class="text-field">
-  <%= form.label :birthdate %>
-  <%= form.date_field :birthdate %>
-</div>
+  <div class="text-field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
 
-<div class="text-field">
-  <%= form.label :gender %>
-  <%= form.radio_button(:gender, "Male") %>
-  <%= form.label(:gender, "Male") %>
-  <%= form.radio_button(:gender, "Female") %>
-  <%= form.label(:gender, "Female") %>
-</div>
+  <div class="text-field">
+    <%= form.label :email %>
+    <%= form.text_field :email, type: 'email' %>
+  </div>
+
+  <div class="text-field">
+    <%= form.label :birthdate %>
+    <%= form.date_field :birthdate %>
+  </div>
+
+  <div class="text-field">
+    <%= form.label :gender %>
+    <%= form.radio_button(:gender, "Male") %>
+    <%= form.label(:gender, "Male") %>
+    <%= form.radio_button(:gender, "Female") %>
+    <%= form.label(:gender, "Female") %>
+  </div>
+
+  <%= form.file_field :image %>
+
+  <div class="submit-field">
+    <%= form.submit %>
+  </div>
