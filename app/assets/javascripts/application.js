@@ -38,12 +38,12 @@ $(document).ready(function() {
     $('.navbar-collapse').addClass('collapse');
   });
 
-  $('.home').click(function() {
-    $('.sign-in-container').fadeOut('slow');
-    $('.sign-up-container').fadeOut('slow');
-    $('.navbar-collapse').removeClass('collapse in');
-    $('.navbar-collapse').addClass('collapse');
-  });
+  // $('.home').click(function() {
+  //   $('.sign-in-container').fadeOut('slow');
+  //   $('.sign-up-container').fadeOut('slow');
+  //   $('.navbar-collapse').removeClass('collapse in');
+  //   $('.navbar-collapse').addClass('collapse');
+  // });
 
   // $('.container').click(function() {
   //   $('.navbar-collapse').removeClass('collapse in');

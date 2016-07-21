@@ -31,12 +31,15 @@
         <div class="collapse navbar-inverse navbar-collapse">
           <ul class="nav navbar-nav">
             <li class="active">
-              <%= content_tag(:a, "Home", class: "home") %>
+              <%= link_to "Home", root_url, method: :get %>
             </li>
 
             <% if signed_in? %>
               <li>
-                <%= content_tag(:a, "Create a Listing", class: "create-listing") %>
+                <%= link_to "Create a listing", new_listing_path, method: :get %>
+              </li>
+              <li>
+                <%= link_to "View profile", user_path(current_user.id) %>
               </li>
               <li>
                 <%= link_to t(".sign_out"), sign_out_path, method: :delete %>
