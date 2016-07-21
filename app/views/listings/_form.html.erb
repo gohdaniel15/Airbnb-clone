@@ -50,6 +50,13 @@
     <%= form.text_field :price %>
   </div>
 
+  <div class="text-field">
+    <%= form.label "Tags" %>
+    <%= form.fields_for :tags do |f| %>
+    <%= f.text_field :name %>
+    <% end %>
+  </div>
+
   <div class="submit-field">
     <%= form.submit %>
   </div>

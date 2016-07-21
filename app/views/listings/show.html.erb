@@ -18,4 +18,9 @@
       <p><%= @listing.no_of_beds %> bed(s)</p>
     </div>
   </div>
+  <h3>Tags:
+    <% @listing.tags.each do |tag| %>
+      <%= tag.name %>
+    <% end %>
+  </h3>
 </div>
