@@ -1,2 +1,34 @@
 <div class="jumbotron">
+
+  <div class="create-listing-container">
+    <%= render partial: '/listings/form' %>
+  </div>
+
+  <% Listing.all.each do |l| %>
+    <div class="listing-container">
+
+      <h1><%= l.name %></h1>
+      <h2><%= "#{l.city}, #{l.country}" %></h2>
+
+      <div class="features-container">
+
+        <div class="property-type-container">
+          <div class="property-type-image"></div>
+          <p><%= l.property_type %></p>
+        </div>
+
+        <div class="no-of-guests-container">
+          <div class="no-of-guests-image"></div>
+          <p><%= l.no_of_guests %> guest(s)</p>
+        </div>
+
+        <div class="no-of-beds-container">
+          <div class="no-of-beds-image"></div>
+          <p><%= l.no_of_beds %> bed(s)</p>
+        </div>
+
+      </div>
+
+    </div>
+  <% end %>
 </div>

@@ -17,7 +17,6 @@
 
 $(document).ready(function() {
   $('.sign-in').click(function() {
-    // $('.jumbotron').fadeOut('fast');
     $('.sign-up-container').fadeOut('fast');
     $('.sign-in-container').fadeIn('slow');
     $('.navbar-collapse').removeClass('collapse in');
@@ -25,15 +24,21 @@ $(document).ready(function() {
   });
 
   $('.sign-up').click(function() {
-    // $('.jumbotron').fadeOut('fast');
     $('.sign-in-container').fadeOut('fast');
     $('.sign-up-container').fadeIn('slow');
     $('.navbar-collapse').removeClass('collapse in');
     $('.navbar-collapse').addClass('collapse');
   });
 
+  $('.create-listing').click(function() {
+    $('.sign-in-container').fadeOut('fast');
+    $('.sign-up-container').fadeOut('fast');
+    $('.create-listing-container').fadeIn('slow');
+    $('.navbar-collapse').removeClass('collapse in');
+    $('.navbar-collapse').addClass('collapse');
+  });
+
   $('.home').click(function() {
-    // $('.jumbotron').fadeIn('fast');
     $('.sign-in-container').fadeOut('slow');
     $('.sign-up-container').fadeOut('slow');
     $('.navbar-collapse').removeClass('collapse in');

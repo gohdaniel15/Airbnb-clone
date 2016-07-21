@@ -7,6 +7,8 @@
   background-repeat: no-repeat;
   background-size: cover;
   padding: 0;
+  padding-left: 0;
+  padding-right: 0;
   height: 768px;
   background-position-x: -22em;
   position: absolute;
@@ -14,4 +16,59 @@
   @media(min-width:34em){
     background-position-x: 0
   }
+}
+
+.create-listing-container {
+    width: 100%;
+    height: 650px;
+    position:absolute;
+    z-index: 1;
+    background-color: white;
+    display: none;
+    text-align: center;
+    @media(min-width:34em){
+      width: 40%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+}
+
+.features-container {
+  display: inline-block;
+}
+
+.property-type-container, .no-of-beds-container, .no-of-guests-container {
+  display: inline-block;
+  text-align: center;
+}
+
+.property-type-image {
+  display: inline-block;
+  background-image: url("/assets/tent.svg");
+  background-size: 50px;
+  height: 50px;
+  width: 50px;
+  background-repeat: no-repeat;
+}
+
+.no-of-beds-image {
+  display: inline-block;
+  background-image: url("/assets/bed.svg");
+  background-size: 50px;
+  height: 50px;
+  width: 50px;
+  background-repeat: no-repeat;
+}
+
+.no-of-guests-image {
+  display: inline-block;
+  background-image: url("/assets/suitcase.svg");
+  background-size: 50px;
+  height: 50px;
+  width: 50px;
+  background-repeat: no-repeat;
+}
+
+.listing-container {
+  background-color: aquamarine;
 }

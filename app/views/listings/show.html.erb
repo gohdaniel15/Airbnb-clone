@@ -1,0 +1,21 @@
+<div>
+  <h1><%= @listing.name %></h1>
+  <h2><%= "#{@listing.city}, #{@listing.country}" %></h2>
+  <div class="features-container">
+
+    <div class="property-type-container">
+      <div class="property-type-image"></div>
+      <p><%= @listing.property_type %></p>
+    </div>
+
+    <div class="no-of-guests-container">
+      <div class="no-of-guests-image"></div>
+      <p><%= @listing.no_of_guests %> guest(s)</p>
+    </div>
+
+    <div class="no-of-beds-container">
+      <div class="no-of-beds-image"></div>
+      <p><%= @listing.no_of_beds %> bed(s)</p>
+    </div>
+  </div>
+</div>

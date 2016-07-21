@@ -26,7 +26,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#"><div class="main-logo"></div></a>
+          <a class="navbar-brand" href="/"><div class="main-logo"></div></a>
         </div>
         <div class="collapse navbar-inverse navbar-collapse">
           <ul class="nav navbar-nav">
@@ -35,6 +35,9 @@
             </li>
 
             <% if signed_in? %>
+              <li>
+                <%= content_tag(:a, "Create a Listing", class: "create-listing") %>
+              </li>
               <li>
                 <%= link_to t(".sign_out"), sign_out_path, method: :delete %>
               </li>

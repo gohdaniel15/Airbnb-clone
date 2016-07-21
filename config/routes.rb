@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   resources :passwords, controller: "clearance/passwords", only: [:create, :new]
   resource :session, controller: "clearance/sessions", only: [:create]
+  resources :listings, only: [:index, :show, :new, :edit, :update]
 
   resources :users, controller: "clearance/users", only: [:create] do
     resource :password,
@@ -19,6 +20,8 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
   root 'listings#index'
+
+  post "/listings" => "listings#create", as: "listings_create"
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
