@@ -1,4 +1,5 @@
 class Clearance::UsersController < Clearance::BaseController
+  
   if respond_to?(:before_action)
     before_action :redirect_signed_in_users, only: [:create, :new]
     skip_before_action :require_login, only: [:create, :new], raise: false
@@ -15,6 +16,7 @@ class Clearance::UsersController < Clearance::BaseController
   end
 
   def create
+    byebug
     @user = User.new(permit_params)
 
     if @user.save
@@ -58,21 +60,11 @@ class Clearance::UsersController < Clearance::BaseController
     end
   end
 
-  # def user_from_params
-  #   email = user_params.delete(:email)
-  #   password = user_params.delete(:password)
-  #
-  #   Clearance.configuration.user_model.new(user_params).tap do |user|
-  #     user.email = email
-  #     user.password = password
-  #   end
-  # end
-
   def user_params
     params[Clearance.configuration.user_parameter] || Hash.new
   end
 
   def permit_params
-    params.require(:user).permit(:name, :email, :password, :gender, :birthdate)
+    params.require(:user).permit(:name, :email, :password, :gender, :birthdate, :image)
   end
 end

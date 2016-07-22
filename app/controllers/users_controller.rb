@@ -19,11 +19,6 @@ class UsersController < Clearance::UsersController
     @user = current_user
   end
 
-  def create
-    byebug
-    redirect_to 'clearance/users#create'
-  end
-
 private
 
   def set_user
