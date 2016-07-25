@@ -11,7 +11,7 @@ before_action :find_reservation, only: [:show, :edit, :update, :destroy]
     @reservation.listing_id = params[:listing_id]
     @listing = @reservation.listing
     if (@reservation.reserved_dates & @listing.blocked_dates).empty? && @reservation.save
-      UserMailer.sample_email(@listing.user).deliver
+      UserMailer.delay.sample_email(@listing.user)
       redirect_to listing_path(@listing)
     else
       redirect_to new_listing_reservation_path
