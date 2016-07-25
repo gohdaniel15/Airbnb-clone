@@ -21,6 +21,8 @@ gem 'figaro'
 # Use OmniAuth for facebook authentication
 gem 'omniauth'
 gem 'omniauth-facebook'
+
+gem 'sidekiq'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Use carrierwave to upload pictures
