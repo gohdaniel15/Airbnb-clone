@@ -21,6 +21,8 @@ gem 'figaro'
 # Use OmniAuth for facebook authentication
 gem 'omniauth'
 gem 'omniauth-facebook'
+# Use Simple Calendar
+gem "simple_calendar", "~> 2.0"
 
 gem 'sidekiq'
 # Use jquery as the JavaScript library

@@ -26,9 +26,12 @@
       <%= tag.name %>
     <% end %>
   </h3>
-  Reserved on
+  <h3>Reserved on:</h3>
+  <%= month_calendar events: @listing.booked_dates do |date, reservation| %>
+          <%= date.day %>
+  <% end %>
   <% @listing.reservations.each do |lr| %>
-    <%= lr.start_date %> to <%= lr.end_date %>
+    <p><%= lr.start_date %> to <%= lr.end_date %></p>
   <% end %><br>
   <%= link_to "Create a reservation", new_listing_reservation_path(@listing), method: :get %>
 </div>

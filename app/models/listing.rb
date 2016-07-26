@@ -16,4 +16,14 @@ class Listing < ActiveRecord::Base
     return dates
   end
 
+  def booked_dates
+    reservations.map do |r|
+      r.each_date.map do |d|
+        x = r.dup
+        x.book_date = d
+        x
+      end
+    end.flatten
+  end
+
 end
