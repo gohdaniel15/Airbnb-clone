@@ -25,7 +25,6 @@ class ListingsController < ApplicationController
   end
 
   def index
-    @listing = Listing.all
   end
 
   def show
