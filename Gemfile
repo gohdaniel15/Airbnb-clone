@@ -26,6 +26,7 @@ gem 'omniauth-facebook'
 gem "simple_calendar", "~> 2.0"
 
 gem 'sidekiq'
+gem 'searchkick'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Use carrierwave to upload pictures

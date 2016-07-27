@@ -28,7 +28,6 @@ class ListingsController < ApplicationController
   end
 
   def show
-    
     @reservation = current_user.reservations.find_by(listing_id: @listing.id)
   end
 
@@ -39,6 +38,10 @@ class ListingsController < ApplicationController
   end
 
   def destroy
+  end
+
+  def search
+    @search = params[:search]
   end
 
   private

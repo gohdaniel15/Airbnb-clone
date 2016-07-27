@@ -107,6 +107,20 @@
   <% end %>
 </div>
 
+<div class="jumbotron">
+  <div class="landingTitle">
+    <h2>CRASHING HAS NEVER BEEN EASIER</h2>
+  </div>
+
+  <div class="searchForm">
+    <div class="searchBar">
+      <%= form_tag(listings_search_path, method: "get") do %>
+        <%= text_field_tag :search, params[:search], placeholder: "Where do you want to go?" %>
+        <%= submit_tag("Search") %>
+      <% end %>
+    </div>
+  </div>
+</div>
 
 <div class="container body-container">
   <%= yield %>

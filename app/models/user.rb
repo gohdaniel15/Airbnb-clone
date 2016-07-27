@@ -7,6 +7,7 @@ class User < ActiveRecord::Base
   has_many :reservations, dependent: :destroy
   has_many :payments
 
+  searchkick
 
   mount_uploader :image, ImageUploader
 

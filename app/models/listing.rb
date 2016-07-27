@@ -6,6 +6,8 @@ class Listing < ActiveRecord::Base
 
   mount_uploaders :listing_images, ListingImagesUploader
 
+  searchkick
+
   def blocked_dates
     dates = []
     self.reservations.each do |r|

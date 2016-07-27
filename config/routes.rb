@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     end
     post "/listings" => "listings#create", as: "listings_create"
     post "/listings/:listing_id/reservations" => "reservations#create", as: "reservations_create"
+    get "/search" => "listings#search", as: "listings_search"
 # Listings & Reservations end
 
 # User accounts
