@@ -34,4 +34,7 @@
     <p><%= lr.start_date %> to <%= lr.end_date %></p>
   <% end %><br>
   <%= link_to "Create a reservation", new_listing_reservation_path(@listing), method: :get %>
+  <% if @reservation != nil%>
+  <%= link_to 'Pay Now', new_payment_path(@reservation.id) %>
+  <%end%>
 </div>

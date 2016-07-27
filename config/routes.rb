@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
 
+  get 'payments/new'
+  resources :payments, only: [:new, :create]
+
 # Listings & Reservations
     resources :listings, only: [:index, :show, :new, :edit, :update] do
       resources :reservations, only: [:index, :show, :new, :edit, :update]

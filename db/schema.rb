@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160722064725) do
+ActiveRecord::Schema.define(version: 20160727021131) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,12 +41,23 @@ ActiveRecord::Schema.define(version: 20160722064725) do
     t.integer  "no_of_beds"
     t.integer  "no_of_bathrooms"
     t.text     "description"
-    t.text     "price"
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
     t.string   "name",            limit: 100
     t.integer  "no_of_guests"
     t.json     "listing_images"
+    t.integer  "price"
+  end
+
+  create_table "payments", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "reservation_id"
+    t.integer  "ref_number"
+    t.integer  "last_four"
+    t.boolean  "success"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.integer  "amount"
   end
 
   create_table "reservations", force: :cascade do |t|

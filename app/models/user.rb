@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
   has_many :authentications, dependent: :destroy
   has_many :listings, foreign_key: :user_id
   has_many :reservations, dependent: :destroy
+  has_many :payments
 
 
   mount_uploader :image, ImageUploader
