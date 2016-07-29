@@ -25,6 +25,7 @@ class ListingsController < ApplicationController
   end
 
   def index
+    @listing = Listing.all
   end
 
   def show
@@ -41,7 +42,23 @@ class ListingsController < ApplicationController
   end
 
   def search
-    @search = params[:search]
+    @search = Listing.search params[:search],
+    fields: [
+      {country: :word_start},
+      {name: :word_start},
+      {address: :word_start},
+      {city: :word_start},
+      {no_of_guests: :word_start}],
+    where: {
+      no_of_guests: params[:no_of_guests],
+      },
+    page: params[:page], per_page: 5
+    @searched_date_range = to_date_range(params[:start_date].to_date, params[:end_date].to_date)
+    @search.each do |search|
+            if !(search.blocked_dates & @searched_date_range).empty?
+                @search.results.delete(search)
+            end
+        end
   end
 
   private
@@ -52,5 +69,10 @@ class ListingsController < ApplicationController
 
   def set_listing
     @listing = Listing.find(params[:id])
+  end
+
+  def to_date_range(start_date, end_date)
+    dates = (start_date..end_date).to_a
+    return dates
   end
 end

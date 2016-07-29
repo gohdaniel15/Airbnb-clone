@@ -1,6 +1,6 @@
 <div class="listingsDisplay">
   <h1>Results: Listings</h1>
-    <% Listing.search("#{@search}").results.each do |l| %>
+    <% @search.results.each do |l| %>
       <div class="listing-container">
 
           <div class="listing-image-container">
@@ -34,4 +34,4 @@
 
       </div>
     <% end %>
-</div>
+<%= paginate @search %>
