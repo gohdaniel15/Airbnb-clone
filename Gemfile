@@ -11,6 +11,10 @@ gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.1.0'
+# Use Puma as Web server
+gem 'puma'
+# use rails 12 factor for production
+gem 'rails_12factor', group: :production
 
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
@@ -24,7 +28,8 @@ gem 'omniauth'
 gem 'omniauth-facebook'
 # Use Simple Calendar
 gem "simple_calendar", "~> 2.0"
-
+gem 'kaminari'
+gem 'kaminari-bootstrap'
 gem 'sidekiq'
 gem 'searchkick'
 # Use jquery as the JavaScript library

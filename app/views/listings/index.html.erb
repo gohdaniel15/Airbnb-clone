@@ -1,5 +1,5 @@
 <div class="listingsDisplay">
-    <% Listing.all.each do |l| %>
+    <% @listing.all.each do |l| %>
       <div class="listing-container">
 
         <a href="/listings/<%= l.id %>"><h1><%= l.name %></h1></a>

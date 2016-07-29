@@ -116,6 +116,12 @@
     <div class="searchBar">
       <%= form_tag(listings_search_path, method: "get") do %>
         <%= text_field_tag :search, params[:search], placeholder: "Where do you want to go?" %>
+        <%= label_tag "From" %>
+        <%= date_field_tag :start_date %>
+        <%= label_tag "To" %>
+        <%= date_field_tag :end_date %>
+        <%= label_tag "Guests" %>
+        <%= select_tag :no_of_guests, options_for_select([1,2,3,4,5,6], 1) %>
         <%= submit_tag("Search") %>
       <% end %>
     </div>

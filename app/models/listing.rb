@@ -6,7 +6,7 @@ class Listing < ActiveRecord::Base
 
   mount_uploaders :listing_images, ListingImagesUploader
 
-  searchkick
+  searchkick word_start: [:name, :country, :city, :type, :address, :property_type, :description]
 
   def blocked_dates
     dates = []
@@ -27,5 +27,7 @@ class Listing < ActiveRecord::Base
       end
     end.flatten
   end
+
+
 
 end
